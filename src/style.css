@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7cc6fe;
+  height: 100vh;
+}
+.quiz {
+  width: 450px;
+  height: 250px;
+  background-color: #252d4a;
+  border-radius: 15px;
+  display: flex;
+  color: white;
+}
+.left-app {
+  width: 50%;
+}
+.right-app {
+  width: 50%;
+}
+.left-app > h1 {
+  display: inline-block;
+  text-align: center;
+  margin: 20px 15px;
+}
+.left-app > div {
+  margin-left: 15px;
+  font-size: 1.2rem;
+}
