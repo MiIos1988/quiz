@@ -11,8 +11,8 @@ body {
   height: 100vh;
 }
 .quiz {
-  width: 450px;
-  height: 250px;
+  width: 650px;
+  height: 350px;
   background-color: #252d4a;
   border-radius: 15px;
   display: flex;
@@ -27,22 +27,27 @@ body {
 .left-app > h1 {
   display: inline-block;
   text-align: center;
-  margin: 20px 15px;
+  margin: 50px 25px;
 }
 .left-app > div {
-  margin-left: 15px;
-  font-size: 1.2rem;
+  margin-left: 25px;
+  margin-right: 15px;
+  font-size: 1.5rem;
 }
 .right-app {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .answer {
   width: 90%;
 
   border: 3px solid #234668;
   border-radius: 15px;
-  font-size: 1.2rem;
-  padding: 5px;
+  font-size: 1.5rem;
+  padding: 8px;
+}
+.answer:hover {
+  cursor: pointer;
+  background-color: #3f4964;
 }
