@@ -10,7 +10,12 @@ function App() {
             Neo malo poduze pitanje koje ce biti u kviyu
           </div>
         </div>
-        <div className="right-app"></div>
+        <div className="right-app">
+          <div className="answer">f</div>
+          <div className="answer">dfs</div>
+          <div className="answer">sd</div>
+          <div className="answer">sdf</div>
+        </div>
       </div>
     </div>
   );
