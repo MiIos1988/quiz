@@ -97,7 +97,7 @@ function App() {
   const [score, setScore] = useState(false);
   const [trueAnswer, setTrueAnswer] = useState(0);
 
-  const newQuestion = (ans) => {
+  const newQuestion = (ans, answerss) => {
     const nextQuestion = numberQuestion + 1;
     if (ans.correct) setTrueAnswer((prev) => prev + 1);
 
@@ -111,9 +111,21 @@ function App() {
     <div className="App">
       <div className="quiz">
         {score ? (
-          <h1 className="score">
-            You score {trueAnswer} out of {data.length}
-          </h1>
+          <div className="scoreTrue">
+            <h1 className="score">
+              You score {trueAnswer} out of {data.length}
+            </h1>
+            <button
+              className="btn"
+              onClick={() => {
+                setNumberQuestion(0);
+                setScore(false);
+                setTrueAnswer(0);
+              }}
+            >
+              Play again
+            </button>
+          </div>
         ) : (
           <>
             <div className="left-app">
@@ -123,13 +135,13 @@ function App() {
               <div className="question">{data[numberQuestion].question}</div>
             </div>
             <div className="right-app">
-              {data[numberQuestion].answers.map((a, id) => {
+              {data[numberQuestion].answers.map((a, id, answers) => {
                 return (
                   <div
                     className="answer"
                     key={id}
                     onClick={() => {
-                      newQuestion(a);
+                      newQuestion(a, data[numberQuestion]);
                     }}
                   >
                     {a.text}

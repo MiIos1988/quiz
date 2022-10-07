@@ -52,5 +52,19 @@ body {
   background-color: #3f4964;
 }
 .score {
+  /* margin: auto; */
+}
+.btn {
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  background-color: #3f4964;
+}
+.scoreTrue {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
   margin: auto;
 }
