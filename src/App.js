@@ -1,12 +1,7 @@
 import { useState } from "react";
-import AllAnswer from "./AllAnswer";
 import "./style.css";
 
 function App() {
-  const [numberQuestion, setNumberQuestion] = useState(0);
-
-  const newQuestion = () => {};
-
   const data = [
     {
       id: 1,
@@ -97,29 +92,53 @@ function App() {
       ],
     },
   ];
+
+  const [numberQuestion, setNumberQuestion] = useState(0);
+  const [score, setScore] = useState(false);
+  const [trueAnswer, setTrueAnswer] = useState(0);
+
+  const newQuestion = (ans) => {
+    const nextQuestion = numberQuestion + 1;
+    if (ans.correct) setTrueAnswer((prev) => prev + 1);
+
+    if (numberQuestion + 1 < data.length) {
+      setNumberQuestion(nextQuestion);
+    } else {
+      setScore(true);
+    }
+  };
   return (
     <div className="App">
       <div className="quiz">
-        <div className="left-app">
-          <h1>
-            QUESTION {numberQuestion + 1}/{data.length}
+        {score ? (
+          <h1 className="score">
+            You score {trueAnswer} out of {data.length}
           </h1>
-          <div className="question">{data[numberQuestion].question}</div>
-        </div>
-        <div className="right-app">
-          {/* <AllAnswer
-            data={data}
-            numberQuestion={numberQuestion}
-            setNumberQuestion={setNumberQuestion}
-          /> */}
-          {data[numberQuestion].answers.map((a, id) => {
-            return (
-              <div className="answer" key={id} onClick={newQuestion}>
-                {a.text}
-              </div>
-            );
-          })}
-        </div>
+        ) : (
+          <>
+            <div className="left-app">
+              <h1>
+                QUESTION {numberQuestion + 1}/{data.length}
+              </h1>
+              <div className="question">{data[numberQuestion].question}</div>
+            </div>
+            <div className="right-app">
+              {data[numberQuestion].answers.map((a, id) => {
+                return (
+                  <div
+                    className="answer"
+                    key={id}
+                    onClick={() => {
+                      newQuestion(a);
+                    }}
+                  >
+                    {a.text}
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
