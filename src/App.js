@@ -97,7 +97,7 @@ function App() {
   const [score, setScore] = useState(false);
   const [trueAnswer, setTrueAnswer] = useState(0);
 
-  const newQuestion = (ans, answerss) => {
+  const newQuestion = (ans) => {
     const nextQuestion = numberQuestion + 1;
     if (ans.correct) setTrueAnswer((prev) => prev + 1);
 
@@ -135,7 +135,7 @@ function App() {
               <div className="question">{data[numberQuestion].question}</div>
             </div>
             <div className="right-app">
-              {data[numberQuestion].answers.map((a, id, answers) => {
+              {data[numberQuestion].answers.map((a, id) => {
                 return (
                   <div
                     className="answer"
